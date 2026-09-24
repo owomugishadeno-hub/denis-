@@ -13,18 +13,18 @@
                 extend: {
                     colors: {
                         brand: {
-                            50: '#eff6ff',
-                            100: '#dbeafe',
-                            500: '#3b82f6',
-                            600: '#2563eb',
-                            700: '#1d4ed8',
-                            850: '#0f172a',
-                            900: '#0b0f19',
-                            950: '#030712',
+                            50: '#fffaf0',
+                            100: '#fef3c7',
+                            500: '#d4af37',
+                            600: '#b8860b',
+                            700: '#8f6b1f',
+                            850: '#17130a',
+                            900: '#0b0a07',
+                            950: '#050403',
                         },
                         accent: {
-                            gold: '#f59e0b',
-                            goldLight: '#fbbf24',
+                            gold: '#d4af37',
+                            goldLight: '#f5d76e',
                         }
                     },
                     fontFamily: {
@@ -55,32 +55,111 @@
         .hero-glow {
             background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(3, 7, 18, 0) 70%);
         }
+
+        /* Luxury gold + mobile optimization */
+        :root {
+            --luxury-gold: #d4af37;
+            --luxury-gold-light: #f5d76e;
+            --luxury-gold-dark: #8f6b1f;
+            --luxury-black: #050403;
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            background:
+                radial-gradient(circle at 80% 10%, rgba(212,175,55,.08), transparent 28%),
+                #050403;
+            overflow-x: hidden;
+        }
+        .luxury-gold-text {
+            background: linear-gradient(90deg, #8f6b1f, #f5d76e, #d4af37);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .hero-photo {
+            width: 100%;
+            height: clamp(360px, 72vh, 650px);
+            object-fit: cover;
+            object-position: center top;
+        }
+        @media (max-width: 767px) {
+            header .h-20 { height: 4.25rem; }
+            #home {
+                padding-top: 7rem;
+                padding-bottom: 3rem;
+                min-height: auto;
+            }
+            #home .grid { gap: 2rem; }
+            #home h1 {
+                font-size: clamp(2.15rem, 10vw, 3.3rem);
+                line-height: 1.08;
+            }
+            #home p { font-size: 1rem; line-height: 1.65; }
+            #home .hero-image-wrap {
+                width: min(100%, 360px);
+                margin: 0 auto;
+            }
+            .hero-photo {
+                height: min(78vh, 520px);
+                min-height: 390px;
+                object-position: center top;
+            }
+            #home .glass-card { padding: .65rem; }
+            #home .quick-stats { gap: .5rem; }
+            #home .quick-stats > div { min-width: 0; }
+            section { scroll-margin-top: 5rem; }
+            .mobile-full {
+                width: 100%;
+            }
+        }
+        @media (max-width: 380px) {
+            #home h1 { font-size: 2rem; }
+            .hero-photo { min-height: 350px; height: 72vh; }
+        }
+
     </style>
+
+    <!-- =========================================================
+         GOOGLE ANALYTICS 4
+         1. Create a Google Analytics property.
+         2. Copy your Measurement ID (looks like G-XXXXXXXXXX).
+         3. Replace G-XXXXXXXXXX below.
+         4. After publishing, view traffic at:
+            https://analytics.google.com/
+         ========================================================= -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
 </head>
-<body class="bg-brand-950 text-gray-100 antialiased selection:bg-brand-500 selection:text-white">
+<body class="bg-[#050403] text-gray-100 antialiased selection:bg-brand-500 selection:text-white">
 
     <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <!-- Logo -->
                 <a href="#home" class="flex items-center space-x-3 group">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-accent-gold flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-brand-500/30 group-hover:scale-105 transition-transform">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#8f6b1f] to-[#d4af37] flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-[#d4af37]/30 group-hover:scale-105 transition-transform">
                         OD
                     </div>
                     <div>
                         <span class="font-bold text-lg tracking-wide block text-white">Owomugisha Denis</span>
-                        <span class="text-xs text-brand-400 font-medium tracking-wider uppercase">Digital Creator</span>
+                        <span class="text-xs text-[#d4af37] font-medium tracking-wider uppercase">Digital Creator</span>
                     </div>
                 </a>
 
                 <!-- Desktop Navigation Links -->
                 <nav class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="text-sm font-medium text-gray-300 hover:text-brand-500 transition-colors">Home</a>
-                    <a href="#about" class="text-sm font-medium text-gray-300 hover:text-brand-500 transition-colors">About Me</a>
-                    <a href="#services" class="text-sm font-medium text-gray-300 hover:text-brand-500 transition-colors">Services</a>
-                    <a href="#portfolio" class="text-sm font-medium text-gray-300 hover:text-brand-500 transition-colors">Portfolio</a>
-                    <a href="#why-me" class="text-sm font-medium text-gray-300 hover:text-brand-500 transition-colors">Why Choose Me</a>
-                    <a href="#contact" class="text-sm font-medium text-gray-300 hover:text-brand-500 transition-colors">Contact</a>
+                    <a href="#home" class="text-sm font-medium text-gray-300 hover:text-[#d4af37] transition-colors">Home</a>
+                    <a href="#about" class="text-sm font-medium text-gray-300 hover:text-[#d4af37] transition-colors">About Me</a>
+                    <a href="#services" class="text-sm font-medium text-gray-300 hover:text-[#d4af37] transition-colors">Services</a>
+                    <a href="#portfolio" class="text-sm font-medium text-gray-300 hover:text-[#d4af37] transition-colors">Portfolio</a>
+                    <a href="#why-me" class="text-sm font-medium text-gray-300 hover:text-[#d4af37] transition-colors">Why Choose Me</a>
+                    <a href="#contact" class="text-sm font-medium text-gray-300 hover:text-[#d4af37] transition-colors">Contact</a>
                 </nav>
 
                 <!-- Action Button -->
@@ -101,13 +180,13 @@
         </div>
 
         <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden bg-brand-900 border-b border-gray-800 px-4 pt-2 pb-6 space-y-3">
-            <a href="#home" class="block py-2 text-base font-medium text-gray-300 hover:text-brand-500 mobile-link">Home</a>
-            <a href="#about" class="block py-2 text-base font-medium text-gray-300 hover:text-brand-500 mobile-link">About Me</a>
-            <a href="#services" class="block py-2 text-base font-medium text-gray-300 hover:text-brand-500 mobile-link">Services</a>
-            <a href="#portfolio" class="block py-2 text-base font-medium text-gray-300 hover:text-brand-500 mobile-link">Portfolio</a>
-            <a href="#why-me" class="block py-2 text-base font-medium text-gray-300 hover:text-brand-500 mobile-link">Why Choose Me</a>
-            <a href="#contact" class="block py-2 text-base font-medium text-gray-300 hover:text-brand-500 mobile-link">Contact</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-[#17130a] border-b border-gray-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#home" class="block py-2 text-base font-medium text-gray-300 hover:text-[#d4af37] mobile-link">Home</a>
+            <a href="#about" class="block py-2 text-base font-medium text-gray-300 hover:text-[#d4af37] mobile-link">About Me</a>
+            <a href="#services" class="block py-2 text-base font-medium text-gray-300 hover:text-[#d4af37] mobile-link">Services</a>
+            <a href="#portfolio" class="block py-2 text-base font-medium text-gray-300 hover:text-[#d4af37] mobile-link">Portfolio</a>
+            <a href="#why-me" class="block py-2 text-base font-medium text-gray-300 hover:text-[#d4af37] mobile-link">Why Choose Me</a>
+            <a href="#contact" class="block py-2 text-base font-medium text-gray-300 hover:text-[#d4af37] mobile-link">Contact</a>
             <div class="pt-2">
                 <a href="https://wa.me/256777990562" target="_blank" class="w-full flex items-center justify-center space-x-2 px-5 py-3 rounded-xl bg-emerald-600 text-white font-semibold text-base shadow-lg">
                     <i class="fab fa-whatsapp text-xl"></i>
@@ -119,21 +198,21 @@
 
     <section id="home" class="relative min-h-screen flex items-center justify-center pt-28 pb-20 overflow-hidden hero-glow">
         <!-- Background Decorative Gradients -->
-        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-600/20 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute bottom-10 right-10 w-80 h-80 bg-accent-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#b8860b]/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-80 h-80 bg-[#d4af37]/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 
                 <!-- Hero Text Content -->
                 <div class="lg:col-span-7 space-y-6 text-center lg:text-left" data-aos="fade-right" data-aos-duration="1000">
-                    <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-brand-900/80 border border-brand-500/30 text-brand-400 text-xs sm:text-sm font-semibold tracking-wide">
-                        <span class="w-2 h-2 rounded-full bg-accent-gold animate-pulse"></span>
+                    <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-[#17130a]/80 border border-[#d4af37]/30 text-[#d4af37] text-xs sm:text-sm font-semibold tracking-wide">
+                        <span class="w-2 h-2 rounded-full bg-[#d4af37] animate-pulse"></span>
                         <span>Available for Freelance & Full-time Projects</span>
                     </div>
 
                     <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
-                        <span class="bg-gradient-to-r from-brand-400 via-accent-gold to-brand-500 bg-clip-text text-transparent">Digital Masterpieces</span>
+                        Transforming Ideas Into <span class="bg-gradient-to-r from-brand-400 via-[#d4af37] to-[#b8860b] bg-clip-text text-transparent">Digital Masterpieces</span>
                     </h1>
 
                     <p class="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto lg:mx-0 font-light">
@@ -142,7 +221,7 @@
 
                     <!-- CTA Buttons -->
                     <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
-                        <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-base shadow-xl shadow-brand-600/30 hover:scale-105 transition-all text-center">
+                        <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-[#8f6b1f] to-[#d4af37] hover:from-[#d4af37] hover:to-[#f5d76e] text-[#050403] font-bold text-base shadow-xl shadow-[#b8860b]/30 hover:scale-105 transition-all text-center">
                             Get In Touch
                         </a>
                         <a href="https://wa.me/256777990562" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-base shadow-xl shadow-emerald-600/30 hover:scale-105 transition-all inline-flex items-center justify-center space-x-2">
@@ -158,30 +237,30 @@
                             <div class="text-xs sm:text-sm text-gray-400 font-medium">Core Skills</div>
                         </div>
                         <div>
-                            <div class="text-2xl sm:text-3xl font-black text-accent-gold">100%</div>
+                            <div class="text-2xl sm:text-3xl font-black text-[#d4af37]">100%</div>
                             <div class="text-xs sm:text-sm text-gray-400 font-medium">Client Satisfaction</div>
                         </div>
                         <div>
-                            <div class="text-2xl sm:text-3xl font-black text-brand-400">24/7</div>
+                            <div class="text-2xl sm:text-3xl font-black text-[#d4af37]">24/7</div>
                             <div class="text-xs sm:text-sm text-gray-400 font-medium">Support & Dedication</div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Hero Image Showcase -->
-                <div class="lg:col-span-5 flex justify-center" data-aos="fade-left" data-aos-duration="1000">
+                <div class="lg:col-span-5 flex justify-center hero-image-wrap" data-aos="fade-left" data-aos-duration="1000">
                     <div class="relative">
                         <!-- Decorative Ring Glow -->
-                        <div class="absolute -inset-2 bg-gradient-to-r from-brand-500 via-accent-gold to-brand-600 rounded-3xl blur-lg opacity-75 animate-pulse"></div>
+                        <div class="absolute -inset-2 bg-gradient-to-r from-[#d4af37] via-[#d4af37] to-[#d4af37] rounded-3xl blur-lg opacity-75 animate-pulse"></div>
                         
                         <!-- Main Card -->
                         <div class="relative glass-card p-4 rounded-3xl shadow-2xl overflow-hidden max-w-sm sm:max-w-md">
                             <div class="relative rounded-2xl overflow-hidden aspect-[4/5] bg-gray-900 shadow-inner">
-                                <img src="WhatsApp Image 2026-09-24 at 05.51.46.jpeg" alt="Owomugisha Denis" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700" onerror="this.src='https://placehold.co/600x750/0f172a/ffffff?text=Owomugisha+Denis';">
+                                <img src="denis-profile.jpeg" alt="Owomugisha Denis" class="hero-photo hover:scale-105 transition-transform duration-700" onerror="this.src='https://placehold.co/600x750/0f172a/ffffff?text=Owomugisha+Denis';">
                                 <div class="absolute inset-0 bg-gradient-to-t from-brand-950 via-transparent to-transparent opacity-80"></div>
                                 <div class="absolute bottom-4 left-4 right-4 p-4 glass-card rounded-xl border border-white/10">
                                     <h3 class="text-lg font-bold text-white">Owomugisha Denis</h3>
-                                    <p class="text-xs text-brand-400 font-medium">Creative Director & Lead Digital Strategist</p>
+                                    <p class="text-xs text-[#d4af37] font-medium">Creative Director & Lead Digital Strategist</p>
                                 </div>
                             </div>
                         </div>
@@ -192,10 +271,10 @@
         </div>
     </section>
 
-    <section id="about" class="py-24 bg-brand-900/50 relative border-t border-gray-800/50">
+    <section id="about" class="py-24 bg-[#17130a]/50 relative border-t border-gray-800/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
-                <span class="text-brand-400 font-bold uppercase tracking-wider text-xs sm:text-sm bg-brand-900 px-4 py-1.5 rounded-full border border-brand-500/20">About Me</span>
+                <span class="text-[#d4af37] font-bold uppercase tracking-wider text-xs sm:text-sm bg-[#17130a] px-4 py-1.5 rounded-full border border-[#d4af37]/20">About Me</span>
                 <h2 class="text-3xl sm:text-5xl font-extrabold text-white mt-4">Passionate Creator, Strategic Thinker</h2>
                 <p class="text-gray-400 mt-4 text-base sm:text-lg">Bridging the gap between stunning visual aesthetics and high-performance digital business results.</p>
             </div>
@@ -213,22 +292,22 @@
 
                     <!-- Skills Badges -->
                     <div class="pt-4">
-                        <h4 class="text-sm font-semibold text-brand-400 uppercase tracking-wider mb-3">Core Expertise</h4>
+                        <h4 class="text-sm font-semibold text-[#d4af37] uppercase tracking-wider mb-3">Core Expertise</h4>
                         <div class="flex flex-wrap gap-3">
-                            <span class="px-4 py-2 rounded-xl bg-brand-950 border border-brand-500/30 text-white text-sm font-medium flex items-center space-x-2">
-                                <i class="fas fa-code text-brand-500"></i>
+                            <span class="px-4 py-2 rounded-xl bg-[#050403] border border-[#d4af37]/30 text-white text-sm font-medium flex items-center space-x-2">
+                                <i class="fas fa-code text-[#d4af37]"></i>
                                 <span>Website Design</span>
                             </span>
-                            <span class="px-4 py-2 rounded-xl bg-brand-950 border border-brand-500/30 text-white text-sm font-medium flex items-center space-x-2">
-                                <i class="fas fa-chart-line text-accent-gold"></i>
+                            <span class="px-4 py-2 rounded-xl bg-[#050403] border border-[#d4af37]/30 text-white text-sm font-medium flex items-center space-x-2">
+                                <i class="fas fa-chart-line text-[#d4af37]"></i>
                                 <span>Digital Marketing</span>
                             </span>
-                            <span class="px-4 py-2 rounded-xl bg-brand-950 border border-brand-500/30 text-white text-sm font-medium flex items-center space-x-2">
-                                <i class="fas fa-share-alt text-brand-500"></i>
+                            <span class="px-4 py-2 rounded-xl bg-[#050403] border border-[#d4af37]/30 text-white text-sm font-medium flex items-center space-x-2">
+                                <i class="fas fa-share-alt text-[#d4af37]"></i>
                                 <span>Social Media Handler</span>
                             </span>
-                            <span class="px-4 py-2 rounded-xl bg-brand-950 border border-brand-500/30 text-white text-sm font-medium flex items-center space-x-2">
-                                <i class="fas fa-paint-brush text-accent-gold"></i>
+                            <span class="px-4 py-2 rounded-xl bg-[#050403] border border-[#d4af37]/30 text-white text-sm font-medium flex items-center space-x-2">
+                                <i class="fas fa-paint-brush text-[#d4af37]"></i>
                                 <span>Graphics Designer</span>
                             </span>
                         </div>
@@ -247,32 +326,32 @@
 
                 <!-- Right Highlights Grid -->
                 <div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-6" data-aos="fade-left">
-                    <div class="glass-card p-6 rounded-2xl hover:border-brand-500/50 transition-all group">
-                        <div class="w-14 h-14 rounded-xl bg-brand-600/20 text-brand-400 flex items-center justify-center text-2xl mb-4 group-hover:bg-brand-600 group-hover:text-white transition-all">
+                    <div class="glass-card p-6 rounded-2xl hover:border-[#d4af37]/50 transition-all group">
+                        <div class="w-14 h-14 rounded-xl bg-[#b8860b]/20 text-[#d4af37] flex items-center justify-center text-2xl mb-4 group-hover:bg-[#b8860b] group-hover:text-white transition-all">
                             <i class="fas fa-laptop-code"></i>
                         </div>
                         <h4 class="text-xl font-bold text-white mb-2">Web Design</h4>
                         <p class="text-gray-400 text-sm">Crafting responsive, modern, and high-converting websites customized for your business goals.</p>
                     </div>
 
-                    <div class="glass-card p-6 rounded-2xl hover:border-brand-500/50 transition-all group">
-                        <div class="w-14 h-14 rounded-xl bg-accent-gold/20 text-accent-gold flex items-center justify-center text-2xl mb-4 group-hover:bg-accent-gold group-hover:text-gray-950 transition-all">
+                    <div class="glass-card p-6 rounded-2xl hover:border-[#d4af37]/50 transition-all group">
+                        <div class="w-14 h-14 rounded-xl bg-[#d4af37]/20 text-[#d4af37] flex items-center justify-center text-2xl mb-4 group-hover:bg-[#d4af37] group-hover:text-gray-950 transition-all">
                             <i class="fas fa-bullhorn"></i>
                         </div>
                         <h4 class="text-xl font-bold text-white mb-2">Digital Marketing</h4>
                         <p class="text-gray-400 text-sm">Strategic campaigns designed to maximize ROI, capture leads, and boost online presence.</p>
                     </div>
 
-                    <div class="glass-card p-6 rounded-2xl hover:border-brand-500/50 transition-all group">
-                        <div class="w-14 h-14 rounded-xl bg-brand-600/20 text-brand-400 flex items-center justify-center text-2xl mb-4 group-hover:bg-brand-600 group-hover:text-white transition-all">
+                    <div class="glass-card p-6 rounded-2xl hover:border-[#d4af37]/50 transition-all group">
+                        <div class="w-14 h-14 rounded-xl bg-[#b8860b]/20 text-[#d4af37] flex items-center justify-center text-2xl mb-4 group-hover:bg-[#b8860b] group-hover:text-white transition-all">
                             <i class="fas fa-hashtag"></i>
                         </div>
                         <h4 class="text-xl font-bold text-white mb-2">Social Media</h4>
                         <p class="text-gray-400 text-sm">Engaging audiences across platforms with compelling storytelling and consistent brand voice.</p>
                     </div>
 
-                    <div class="glass-card p-6 rounded-2xl hover:border-brand-500/50 transition-all group">
-                        <div class="w-14 h-14 rounded-xl bg-accent-gold/20 text-accent-gold flex items-center justify-center text-2xl mb-4 group-hover:bg-accent-gold group-hover:text-gray-950 transition-all">
+                    <div class="glass-card p-6 rounded-2xl hover:border-[#d4af37]/50 transition-all group">
+                        <div class="w-14 h-14 rounded-xl bg-[#d4af37]/20 text-[#d4af37] flex items-center justify-center text-2xl mb-4 group-hover:bg-[#d4af37] group-hover:text-gray-950 transition-all">
                             <i class="fas fa-palette"></i>
                         </div>
                         <h4 class="text-xl font-bold text-white mb-2">Graphics Design</h4>
@@ -286,16 +365,16 @@
     <section id="services" class="py-24 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
-                <span class="text-brand-400 font-bold uppercase tracking-wider text-xs sm:text-sm bg-brand-900 px-4 py-1.5 rounded-full border border-brand-500/20">What I Offer</span>
+                <span class="text-[#d4af37] font-bold uppercase tracking-wider text-xs sm:text-sm bg-[#17130a] px-4 py-1.5 rounded-full border border-[#d4af37]/20">What I Offer</span>
                 <h2 class="text-3xl sm:text-5xl font-extrabold text-white mt-4">Professional Services</h2>
                 <p class="text-gray-400 mt-4 text-base sm:text-lg">Tailored digital solutions built to elevate your company's brand value and market reach.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Service 1 -->
-                <div class="glass-card p-8 rounded-3xl border border-gray-800 hover:border-brand-500 transition-all duration-300 flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="100">
+                <div class="glass-card p-8 rounded-3xl border border-gray-800 hover:border-[#d4af37] transition-all duration-300 flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="100">
                     <div>
-                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-brand-600 to-brand-400 flex items-center justify-center text-white text-2xl mb-6 shadow-lg shadow-brand-500/30 group-hover:scale-110 transition-transform">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-[#8f6b1f] to-brand-400 flex items-center justify-center text-white text-2xl mb-6 shadow-lg shadow-[#d4af37]/30 group-hover:scale-110 transition-transform">
                             <i class="fas fa-code"></i>
                         </div>
                         <h3 class="text-2xl font-bold text-white mb-3">Website Design</h3>
@@ -304,17 +383,17 @@
                         </p>
                     </div>
                     <div class="pt-6 mt-6 border-t border-gray-800 flex items-center justify-between">
-                        <span class="text-xs font-semibold text-brand-400 uppercase tracking-wider">UI/UX & Development</span>
-                        <a href="#contact" class="w-8 h-8 rounded-full bg-brand-900 flex items-center justify-center text-white group-hover:bg-brand-600 transition-colors">
+                        <span class="text-xs font-semibold text-[#d4af37] uppercase tracking-wider">UI/UX & Development</span>
+                        <a href="#contact" class="w-8 h-8 rounded-full bg-[#17130a] flex items-center justify-center text-white group-hover:bg-[#b8860b] transition-colors">
                             <i class="fas fa-arrow-right text-xs"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Service 2 -->
-                <div class="glass-card p-8 rounded-3xl border border-gray-800 hover:border-brand-500 transition-all duration-300 flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="200">
+                <div class="glass-card p-8 rounded-3xl border border-gray-800 hover:border-[#d4af37] transition-all duration-300 flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="200">
                     <div>
-                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-accent-gold to-amber-500 flex items-center justify-center text-gray-950 text-2xl mb-6 shadow-lg shadow-accent-gold/20 group-hover:scale-110 transition-transform">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-[#d4af37] to-[#f5d76e] flex items-center justify-center text-gray-950 text-2xl mb-6 shadow-lg shadow-[#d4af37]/20 group-hover:scale-110 transition-transform">
                             <i class="fas fa-chart-pie"></i>
                         </div>
                         <h3 class="text-2xl font-bold text-white mb-3">Digital Marketing</h3>
@@ -323,17 +402,17 @@
                         </p>
                     </div>
                     <div class="pt-6 mt-6 border-t border-gray-800 flex items-center justify-between">
-                        <span class="text-xs font-semibold text-accent-gold uppercase tracking-wider">Growth & ROI</span>
-                        <a href="#contact" class="w-8 h-8 rounded-full bg-brand-900 flex items-center justify-center text-white group-hover:bg-accent-gold group-hover:text-gray-950 transition-colors">
+                        <span class="text-xs font-semibold text-[#d4af37] uppercase tracking-wider">Growth & ROI</span>
+                        <a href="#contact" class="w-8 h-8 rounded-full bg-[#17130a] flex items-center justify-center text-white group-hover:bg-[#d4af37] group-hover:text-gray-950 transition-colors">
                             <i class="fas fa-arrow-right text-xs"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Service 3 -->
-                <div class="glass-card p-8 rounded-3xl border border-gray-800 hover:border-brand-500 transition-all duration-300 flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="300">
+                <div class="glass-card p-8 rounded-3xl border border-gray-800 hover:border-[#d4af37] transition-all duration-300 flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="300">
                     <div>
-                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-brand-600 to-teal-500 flex items-center justify-center text-white text-2xl mb-6 shadow-lg shadow-brand-500/30 group-hover:scale-110 transition-transform">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-[#8f6b1f] to-teal-500 flex items-center justify-center text-white text-2xl mb-6 shadow-lg shadow-[#d4af37]/30 group-hover:scale-110 transition-transform">
                             <i class="fas fa-share-nodes"></i>
                         </div>
                         <h3 class="text-2xl font-bold text-white mb-3">Social Media Handler</h3>
@@ -342,17 +421,17 @@
                         </p>
                     </div>
                     <div class="pt-6 mt-6 border-t border-gray-800 flex items-center justify-between">
-                        <span class="text-xs font-semibold text-brand-400 uppercase tracking-wider">Engagement & Reach</span>
-                        <a href="#contact" class="w-8 h-8 rounded-full bg-brand-900 flex items-center justify-center text-white group-hover:bg-brand-600 transition-colors">
+                        <span class="text-xs font-semibold text-[#d4af37] uppercase tracking-wider">Engagement & Reach</span>
+                        <a href="#contact" class="w-8 h-8 rounded-full bg-[#17130a] flex items-center justify-center text-white group-hover:bg-[#b8860b] transition-colors">
                             <i class="fas fa-arrow-right text-xs"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Service 4 -->
-                <div class="glass-card p-8 rounded-3xl border border-gray-800 hover:border-brand-500 transition-all duration-300 flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="400">
+                <div class="glass-card p-8 rounded-3xl border border-gray-800 hover:border-[#d4af37] transition-all duration-300 flex flex-col justify-between group" data-aos="fade-up" data-aos-delay="400">
                     <div>
-                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-accent-gold to-orange-500 flex items-center justify-center text-gray-950 text-2xl mb-6 shadow-lg shadow-accent-gold/20 group-hover:scale-110 transition-transform">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-[#d4af37] to-orange-500 flex items-center justify-center text-gray-950 text-2xl mb-6 shadow-lg shadow-[#d4af37]/20 group-hover:scale-110 transition-transform">
                             <i class="fas fa-pen-nib"></i>
                         </div>
                         <h3 class="text-2xl font-bold text-white mb-3">Graphics Designer</h3>
@@ -361,8 +440,8 @@
                         </p>
                     </div>
                     <div class="pt-6 mt-6 border-t border-gray-800 flex items-center justify-between">
-                        <span class="text-xs font-semibold text-accent-gold uppercase tracking-wider">Visuals & Branding</span>
-                        <a href="#contact" class="w-8 h-8 rounded-full bg-brand-900 flex items-center justify-center text-white group-hover:bg-accent-gold group-hover:text-gray-950 transition-colors">
+                        <span class="text-xs font-semibold text-[#d4af37] uppercase tracking-wider">Visuals & Branding</span>
+                        <a href="#contact" class="w-8 h-8 rounded-full bg-[#17130a] flex items-center justify-center text-white group-hover:bg-[#d4af37] group-hover:text-gray-950 transition-colors">
                             <i class="fas fa-arrow-right text-xs"></i>
                         </a>
                     </div>
@@ -371,21 +450,21 @@
         </div>
     </section>
 
-    <section id="portfolio" class="py-24 bg-brand-900/50 border-t border-gray-800/50">
+    <section id="portfolio" class="py-24 bg-[#17130a]/50 border-t border-gray-800/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12" data-aos="fade-up">
-                <span class="text-brand-400 font-bold uppercase tracking-wider text-xs sm:text-sm bg-brand-900 px-4 py-1.5 rounded-full border border-brand-500/20">Our Work</span>
+                <span class="text-[#d4af37] font-bold uppercase tracking-wider text-xs sm:text-sm bg-[#17130a] px-4 py-1.5 rounded-full border border-[#d4af37]/20">Our Work</span>
                 <h2 class="text-3xl sm:text-5xl font-extrabold text-white mt-4">Featured Portfolio</h2>
                 <p class="text-gray-400 mt-4 text-base sm:text-lg">Explore recent projects, web designs, marketing campaigns, and graphical branding.</p>
             </div>
 
             <!-- Portfolio Filter Buttons -->
             <div class="flex flex-wrap items-center justify-center gap-3 mb-12" data-aos="fade-up">
-                <button onclick="filterPortfolio('all')" class="portfolio-filter-btn px-6 py-2.5 rounded-xl text-sm font-semibold bg-brand-600 text-white shadow-lg shadow-brand-600/30 transition-all">All Projects</button>
-                <button onclick="filterPortfolio('web')" class="portfolio-filter-btn px-6 py-2.5 rounded-xl text-sm font-semibold bg-brand-900 text-gray-300 hover:bg-brand-800 transition-all">Websites</button>
-                <button onclick="filterPortfolio('marketing')" class="portfolio-filter-btn px-6 py-2.5 rounded-xl text-sm font-semibold bg-brand-900 text-gray-300 hover:bg-brand-800 transition-all">Marketing</button>
-                <button onclick="filterPortfolio('social')" class="portfolio-filter-btn px-6 py-2.5 rounded-xl text-sm font-semibold bg-brand-900 text-gray-300 hover:bg-brand-800 transition-all">Social Media</button>
-                <button onclick="filterPortfolio('graphics')" class="portfolio-filter-btn px-6 py-2.5 rounded-xl text-sm font-semibold bg-brand-900 text-gray-300 hover:bg-brand-800 transition-all">Graphics</button>
+                <button onclick="filterPortfolio('all', this)" class="portfolio-filter-btn px-6 py-2.5 rounded-xl text-sm font-semibold bg-[#b8860b] text-white shadow-lg shadow-[#b8860b]/30 transition-all">All Projects</button>
+                <button onclick="filterPortfolio('web', this)" class="portfolio-filter-btn px-6 py-2.5 rounded-xl text-sm font-semibold bg-[#17130a] text-gray-300 hover:bg-brand-800 transition-all">Websites</button>
+                <button onclick="filterPortfolio('marketing', this)" class="portfolio-filter-btn px-6 py-2.5 rounded-xl text-sm font-semibold bg-[#17130a] text-gray-300 hover:bg-brand-800 transition-all">Marketing</button>
+                <button onclick="filterPortfolio('social', this)" class="portfolio-filter-btn px-6 py-2.5 rounded-xl text-sm font-semibold bg-[#17130a] text-gray-300 hover:bg-brand-800 transition-all">Social Media</button>
+                <button onclick="filterPortfolio('graphics', this)" class="portfolio-filter-btn px-6 py-2.5 rounded-xl text-sm font-semibold bg-[#17130a] text-gray-300 hover:bg-brand-800 transition-all">Graphics</button>
             </div>
 
             <!-- Portfolio Grid -->
@@ -396,12 +475,12 @@
                     <div class="relative h-60 overflow-hidden bg-gray-900">
                         <img src="https://placehold.co/600x400/0f172a/3b82f6?text=Corporate+Website+Design" alt="Website Design" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-950 via-transparent to-transparent opacity-80"></div>
-                        <span class="absolute top-4 right-4 px-3 py-1 rounded-full bg-brand-600 text-white text-xs font-semibold">Websites</span>
+                        <span class="absolute top-4 right-4 px-3 py-1 rounded-full bg-[#b8860b] text-white text-xs font-semibold">Websites</span>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-white mb-2">Corporate Business Website</h3>
                         <p class="text-gray-400 text-sm mb-4">A responsive corporate web portal built with clean UI, lightning-fast speed, and optimized SEO.</p>
-                        <a href="https://wa.me/256777990562?text=Hi%20Denis,%20I%20liked%20your%20Corporate%20Website%20project%20and%20want%20something%20similar!" target="_blank" class="inline-flex items-center space-x-2 text-brand-400 font-semibold text-sm hover:text-brand-300 transition-colors">
+                        <a href="https://wa.me/256777990562?text=Hi%20Denis,%20I%20liked%20your%20Corporate%20Website%20project%20and%20want%20something%20similar!" target="_blank" class="inline-flex items-center space-x-2 text-[#d4af37] font-semibold text-sm hover:text-brand-300 transition-colors">
                             <span>Inquire on WhatsApp</span>
                             <i class="fas fa-arrow-right text-xs"></i>
                         </a>
@@ -413,12 +492,12 @@
                     <div class="relative h-60 overflow-hidden bg-gray-900">
                         <img src="https://placehold.co/600x400/0f172a/f59e0b?text=Digital+Marketing+Campaign" alt="Digital Marketing" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-950 via-transparent to-transparent opacity-80"></div>
-                        <span class="absolute top-4 right-4 px-3 py-1 rounded-full bg-accent-gold text-gray-950 text-xs font-semibold">Marketing</span>
+                        <span class="absolute top-4 right-4 px-3 py-1 rounded-full bg-[#d4af37] text-gray-950 text-xs font-semibold">Marketing</span>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-white mb-2">ROI-Driven Marketing Funnel</h3>
                         <p class="text-gray-400 text-sm mb-4">Executed a multi-channel digital campaign that drove over 300% surge in qualified client leads.</p>
-                        <a href="https://wa.me/256777990562?text=Hi%20Denis,%20I%20want%20to%20boost%20my%20business%20with%20your%20marketing%20services!" target="_blank" class="inline-flex items-center space-x-2 text-brand-400 font-semibold text-sm hover:text-brand-300 transition-colors">
+                        <a href="https://wa.me/256777990562?text=Hi%20Denis,%20I%20want%20to%20boost%20my%20business%20with%20your%20marketing%20services!" target="_blank" class="inline-flex items-center space-x-2 text-[#d4af37] font-semibold text-sm hover:text-brand-300 transition-colors">
                             <span>Inquire on WhatsApp</span>
                             <i class="fas fa-arrow-right text-xs"></i>
                         </a>
@@ -435,7 +514,7 @@
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-white mb-2">Social Media Brand Growth</h3>
                         <p class="text-gray-400 text-sm mb-4">Complete management of Instagram & Facebook channels with consistent viral reels and high engagement.</p>
-                        <a href="https://wa.me/256777990562?text=Hi%20Denis,%20I%20need%20help%20managing%20my%20social%20media%20accounts!" target="_blank" class="inline-flex items-center space-x-2 text-brand-400 font-semibold text-sm hover:text-brand-300 transition-colors">
+                        <a href="https://wa.me/256777990562?text=Hi%20Denis,%20I%20need%20help%20managing%20my%20social%20media%20accounts!" target="_blank" class="inline-flex items-center space-x-2 text-[#d4af37] font-semibold text-sm hover:text-brand-300 transition-colors">
                             <span>Inquire on WhatsApp</span>
                             <i class="fas fa-arrow-right text-xs"></i>
                         </a>
@@ -452,7 +531,7 @@
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-white mb-2">Brand Identity & Flyers</h3>
                         <p class="text-gray-400 text-sm mb-4">Unique, premium graphic designs and promotional flyers tailored for high-end corporate events.</p>
-                        <a href="https://wa.me/256777990562?text=Hi%20Denis,%20I%20need%20stunning%20graphics%20design%20for%20my%20brand!" target="_blank" class="inline-flex items-center space-x-2 text-brand-400 font-semibold text-sm hover:text-brand-300 transition-colors">
+                        <a href="https://wa.me/256777990562?text=Hi%20Denis,%20I%20need%20stunning%20graphics%20design%20for%20my%20brand!" target="_blank" class="inline-flex items-center space-x-2 text-[#d4af37] font-semibold text-sm hover:text-brand-300 transition-colors">
                             <span>Inquire on WhatsApp</span>
                             <i class="fas fa-arrow-right text-xs"></i>
                         </a>
@@ -464,12 +543,12 @@
                     <div class="relative h-60 overflow-hidden bg-gray-900">
                         <img src="https://placehold.co/600x400/0f172a/8b5cf6?text=E-Commerce+Store" alt="E-Commerce Website" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-950 via-transparent to-transparent opacity-80"></div>
-                        <span class="absolute top-4 right-4 px-3 py-1 rounded-full bg-brand-600 text-white text-xs font-semibold">Websites</span>
+                        <span class="absolute top-4 right-4 px-3 py-1 rounded-full bg-[#b8860b] text-white text-xs font-semibold">Websites</span>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-white mb-2">E-Commerce Web Platform</h3>
                         <p class="text-gray-400 text-sm mb-4">Fully functional online store featuring secure checkout, inventory tracking, and mobile optimization.</p>
-                        <a href="https://wa.me/256777990562?text=Hi%20Denis,%20I%20need%20an%20e-commerce%20website%20for%20my%20products!" target="_blank" class="inline-flex items-center space-x-2 text-brand-400 font-semibold text-sm hover:text-brand-300 transition-colors">
+                        <a href="https://wa.me/256777990562?text=Hi%20Denis,%20I%20need%20an%20e-commerce%20website%20for%20my%20products!" target="_blank" class="inline-flex items-center space-x-2 text-[#d4af37] font-semibold text-sm hover:text-brand-300 transition-colors">
                             <span>Inquire on WhatsApp</span>
                             <i class="fas fa-arrow-right text-xs"></i>
                         </a>
@@ -481,12 +560,12 @@
                     <div class="relative h-60 overflow-hidden bg-gray-900">
                         <img src="https://placehold.co/600x400/0f172a/06b6d4?text=Ad+Campaign+Strategy" alt="Ad Campaign" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-950 via-transparent to-transparent opacity-80"></div>
-                        <span class="absolute top-4 right-4 px-3 py-1 rounded-full bg-accent-gold text-gray-950 text-xs font-semibold">Marketing</span>
+                        <span class="absolute top-4 right-4 px-3 py-1 rounded-full bg-[#d4af37] text-gray-950 text-xs font-semibold">Marketing</span>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-white mb-2">Targeted Facebook & Google Ads</h3>
                         <p class="text-gray-400 text-sm mb-4">Precision-targeted ad campaigns delivering high conversion rates and lower cost per acquisition.</p>
-                        <a href="https://wa.me/256777990562?text=Hi%20Denis,%20I%20want%20to%20run%20profitable%20ad%20campaigns!" target="_blank" class="inline-flex items-center space-x-2 text-brand-400 font-semibold text-sm hover:text-brand-300 transition-colors">
+                        <a href="https://wa.me/256777990562?text=Hi%20Denis,%20I%20want%20to%20run%20profitable%20ad%20campaigns!" target="_blank" class="inline-flex items-center space-x-2 text-[#d4af37] font-semibold text-sm hover:text-brand-300 transition-colors">
                             <span>Inquire on WhatsApp</span>
                             <i class="fas fa-arrow-right text-xs"></i>
                         </a>
@@ -500,15 +579,15 @@
     <section id="why-me" class="py-24 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
-                <span class="text-brand-400 font-bold uppercase tracking-wider text-xs sm:text-sm bg-brand-900 px-4 py-1.5 rounded-full border border-brand-500/20">The Advantage</span>
+                <span class="text-[#d4af37] font-bold uppercase tracking-wider text-xs sm:text-sm bg-[#17130a] px-4 py-1.5 rounded-full border border-[#d4af37]/20">The Advantage</span>
                 <h2 class="text-3xl sm:text-5xl font-extrabold text-white mt-4">Why Choose Owomugisha Denis?</h2>
                 <p class="text-gray-400 mt-4 text-base sm:text-lg">Committed to delivering uncompromising quality, creative flair, and measurable business growth.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Point 1 -->
-                <div class="glass-card p-8 rounded-3xl border border-gray-800 text-center hover:border-brand-500 transition-all" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-16 h-16 mx-auto rounded-2xl bg-brand-600/20 text-brand-400 flex items-center justify-center text-2xl mb-6 shadow-lg">
+                <div class="glass-card p-8 rounded-3xl border border-gray-800 text-center hover:border-[#d4af37] transition-all" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-[#b8860b]/20 text-[#d4af37] flex items-center justify-center text-2xl mb-6 shadow-lg">
                         <i class="fas fa-lightbulb"></i>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-3">Strategic Creativity</h3>
@@ -518,8 +597,8 @@
                 </div>
 
                 <!-- Point 2 -->
-                <div class="glass-card p-8 rounded-3xl border border-gray-800 text-center hover:border-brand-500 transition-all" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-16 h-16 mx-auto rounded-2xl bg-accent-gold/20 text-accent-gold flex items-center justify-center text-2xl mb-6 shadow-lg">
+                <div class="glass-card p-8 rounded-3xl border border-gray-800 text-center hover:border-[#d4af37] transition-all" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-[#d4af37]/20 text-[#d4af37] flex items-center justify-center text-2xl mb-6 shadow-lg">
                         <i class="fas fa-chart-line"></i>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-3">Results-Driven Approach</h3>
@@ -529,8 +608,8 @@
                 </div>
 
                 <!-- Point 3 -->
-                <div class="glass-card p-8 rounded-3xl border border-gray-800 text-center hover:border-brand-500 transition-all" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-16 h-16 mx-auto rounded-2xl bg-brand-600/20 text-brand-400 flex items-center justify-center text-2xl mb-6 shadow-lg">
+                <div class="glass-card p-8 rounded-3xl border border-gray-800 text-center hover:border-[#d4af37] transition-all" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-[#b8860b]/20 text-[#d4af37] flex items-center justify-center text-2xl mb-6 shadow-lg">
                         <i class="fas fa-handshake"></i>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-3">Personalized Service</h3>
@@ -542,10 +621,10 @@
         </div>
     </section>
 
-    <section id="contact" class="py-24 bg-brand-900/50 relative border-t border-gray-800/50">
+    <section id="contact" class="py-24 bg-[#17130a]/50 relative border-t border-gray-800/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
-                <span class="text-brand-400 font-bold uppercase tracking-wider text-xs sm:text-sm bg-brand-900 px-4 py-1.5 rounded-full border border-brand-500/20">Get In Touch</span>
+                <span class="text-[#d4af37] font-bold uppercase tracking-wider text-xs sm:text-sm bg-[#17130a] px-4 py-1.5 rounded-full border border-[#d4af37]/20">Get In Touch</span>
                 <h2 class="text-3xl sm:text-5xl font-extrabold text-white mt-4">Let's Build Something Amazing Together</h2>
                 <p class="text-gray-400 mt-4 text-base sm:text-lg">Have a project in mind or want to discuss digital strategy? Reach out directly or send a message below.</p>
             </div>
@@ -573,8 +652,8 @@
                             </a>
 
                             <!-- Location -->
-                            <div class="flex items-center space-x-4 p-4 rounded-2xl bg-brand-950/50 border border-gray-800">
-                                <div class="w-12 h-12 rounded-xl bg-brand-600/20 text-brand-400 flex items-center justify-center text-xl">
+                            <div class="flex items-center space-x-4 p-4 rounded-2xl bg-[#050403]/50 border border-gray-800">
+                                <div class="w-12 h-12 rounded-xl bg-[#b8860b]/20 text-[#d4af37] flex items-center justify-center text-xl">
                                     <i class="fas fa-map-marker-alt"></i>
                                 </div>
                                 <div>
@@ -584,8 +663,8 @@
                             </div>
 
                             <!-- Email / Services -->
-                            <div class="flex items-center space-x-4 p-4 rounded-2xl bg-brand-950/50 border border-gray-800">
-                                <div class="w-12 h-12 rounded-xl bg-accent-gold/20 text-accent-gold flex items-center justify-center text-xl">
+                            <div class="flex items-center space-x-4 p-4 rounded-2xl bg-[#050403]/50 border border-gray-800">
+                                <div class="w-12 h-12 rounded-xl bg-[#d4af37]/20 text-[#d4af37] flex items-center justify-center text-xl">
                                     <i class="fas fa-envelope"></i>
                                 </div>
                                 <div>
@@ -599,16 +678,16 @@
                         <div class="pt-4 border-t border-gray-800">
                             <h4 class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Connect on Socials</h4>
                             <div class="flex space-x-4">
-                                <a href="https://wa.me/256777990562" target="_blank" class="w-10 h-10 rounded-xl bg-brand-950 border border-gray-800 flex items-center justify-center text-emerald-400 hover:bg-emerald-600 hover:text-white transition-all">
+                                <a href="https://wa.me/256777990562" target="_blank" class="w-10 h-10 rounded-xl bg-[#050403] border border-gray-800 flex items-center justify-center text-emerald-400 hover:bg-emerald-600 hover:text-white transition-all">
                                     <i class="fab fa-whatsapp"></i>
                                 </a>
-                                <a href="https://wa.me/256777990562" target="_blank" class="w-10 h-10 rounded-xl bg-brand-950 border border-gray-800 flex items-center justify-center text-brand-400 hover:bg-brand-600 hover:text-white transition-all">
+                                <a href="https://wa.me/256777990562" target="_blank" class="w-10 h-10 rounded-xl bg-[#050403] border border-gray-800 flex items-center justify-center text-[#d4af37] hover:bg-[#b8860b] hover:text-white transition-all">
                                     <i class="fab fa-facebook-f"></i>
                                 </a>
-                                <a href="https://wa.me/256777990562" target="_blank" class="w-10 h-10 rounded-xl bg-brand-950 border border-gray-800 flex items-center justify-center text-pink-400 hover:bg-pink-600 hover:text-white transition-all">
+                                <a href="https://wa.me/256777990562" target="_blank" class="w-10 h-10 rounded-xl bg-[#050403] border border-gray-800 flex items-center justify-center text-pink-400 hover:bg-pink-600 hover:text-white transition-all">
                                     <i class="fab fa-instagram"></i>
                                 </a>
-                                <a href="https://wa.me/256777990562" target="_blank" class="w-10 h-10 rounded-xl bg-brand-950 border border-gray-800 flex items-center justify-center text-cyan-400 hover:bg-cyan-600 hover:text-white transition-all">
+                                <a href="https://wa.me/256777990562" target="_blank" class="w-10 h-10 rounded-xl bg-[#050403] border border-gray-800 flex items-center justify-center text-cyan-400 hover:bg-cyan-600 hover:text-white transition-all">
                                     <i class="fab fa-tiktok"></i>
                                 </a>
                             </div>
@@ -626,17 +705,17 @@
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div>
                                     <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Your Name</label>
-                                    <input type="text" id="form-name" required class="w-full px-4 py-3.5 rounded-xl bg-brand-950/80 border border-gray-800 text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors" placeholder="John Doe">
+                                    <input type="text" id="form-name" required class="w-full px-4 py-3.5 rounded-xl bg-[#050403]/80 border border-gray-800 text-white placeholder-gray-500 focus:outline-none focus:border-[#d4af37] transition-colors" placeholder="John Doe">
                                 </div>
                                 <div>
                                     <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Your Phone / WhatsApp</label>
-                                    <input type="text" id="form-phone" required class="w-full px-4 py-3.5 rounded-xl bg-brand-950/80 border border-gray-800 text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors" placeholder="+256 ...">
+                                    <input type="text" id="form-phone" required class="w-full px-4 py-3.5 rounded-xl bg-[#050403]/80 border border-gray-800 text-white placeholder-gray-500 focus:outline-none focus:border-[#d4af37] transition-colors" placeholder="+256 ...">
                                 </div>
                             </div>
 
                             <div>
                                 <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Select Service Needed</label>
-                                <select id="form-service" class="w-full px-4 py-3.5 rounded-xl bg-brand-950/80 border border-gray-800 text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors">
+                                <select id="form-service" class="w-full px-4 py-3.5 rounded-xl bg-[#050403]/80 border border-gray-800 text-white placeholder-gray-500 focus:outline-none focus:border-[#d4af37] transition-colors">
                                     <option value="Website Design">Website Design</option>
                                     <option value="Digital Marketing">Digital Marketing Manager</option>
                                     <option value="Social Media Handler">Social Media Handler</option>
@@ -647,10 +726,10 @@
 
                             <div>
                                 <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Your Message</label>
-                                <textarea id="form-message" rows="4" required class="w-full px-4 py-3.5 rounded-xl bg-brand-950/80 border border-gray-800 text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors" placeholder="Tell me about your project..."></textarea>
+                                <textarea id="form-message" rows="4" required class="w-full px-4 py-3.5 rounded-xl bg-[#050403]/80 border border-gray-800 text-white placeholder-gray-500 focus:outline-none focus:border-[#d4af37] transition-colors" placeholder="Tell me about your project..."></textarea>
                             </div>
 
-                            <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-500 hover:to-brand-600 text-white font-bold text-base shadow-xl shadow-brand-600/30 hover:scale-[1.02] transition-all flex items-center justify-center space-x-2">
+                            <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-[#8f6b1f] to-[#b8860b] hover:from-[#d4af37] hover:to-[#d4af37] text-white font-bold text-base shadow-xl shadow-[#b8860b]/30 hover:scale-[1.02] transition-all flex items-center justify-center space-x-2">
                                 <i class="fas fa-paper-plane"></i>
                                 <span>Send Message to Denis</span>
                             </button>
@@ -666,11 +745,11 @@
         </div>
     </section>
 
-    <footer class="bg-brand-950 border-t border-gray-800/80 py-12">
+    <footer class="bg-[#050403] border-t border-gray-800/80 py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row items-center justify-between gap-6">
                 <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-accent-gold flex items-center justify-center text-white font-bold text-lg">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#8f6b1f] to-[#d4af37] flex items-center justify-center text-white font-bold text-lg">
                         OD
                     </div>
                     <div>
@@ -683,11 +762,18 @@
                     &copy; 2026 Owomugisha Denis. All rights reserved. Built with excellence.
                 </div>
 
-                <div class="flex space-x-4">
-                    <a href="https://wa.me/256777990562" target="_blank" class="w-9 h-9 rounded-xl bg-brand-900 flex items-center justify-center text-emerald-400 hover:bg-emerald-600 hover:text-white transition-all">
+                <div class="flex flex-wrap items-center justify-center gap-3">
+
+                <a href="https://analytics.google.com/" target="_blank" rel="noopener"
+                   class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-[#d4af37]/30 text-[#d4af37] hover:bg-[#d4af37] hover:text-[#050403] transition-all text-xs font-semibold"
+                   title="Open Google Analytics">
+                    <i class="fas fa-chart-line"></i>
+                    <span>View Traffic</span>
+                </a>
+                    <a href="https://wa.me/256777990562" target="_blank" class="w-9 h-9 rounded-xl bg-[#17130a] flex items-center justify-center text-emerald-400 hover:bg-emerald-600 hover:text-white transition-all">
                         <i class="fab fa-whatsapp"></i>
                     </a>
-                    <a href="#home" class="w-9 h-9 rounded-xl bg-brand-900 flex items-center justify-center text-brand-400 hover:bg-brand-600 hover:text-white transition-all">
+                    <a href="#home" class="w-9 h-9 rounded-xl bg-[#17130a] flex items-center justify-center text-[#d4af37] hover:bg-[#b8860b] hover:text-white transition-all">
                         <i class="fas fa-arrow-up"></i>
                     </a>
                 </div>
@@ -720,18 +806,18 @@
         });
 
         // Portfolio Filtering
-        function filterPortfolio(category) {
+        function filterPortfolio(category, clickedButton) {
             const items = document.querySelectorAll('.portfolio-item');
             const buttons = document.querySelectorAll('.portfolio-filter-btn');
 
             // Update active button styles
             buttons.forEach(btn => {
-                btn.classList.remove('bg-brand-600', 'text-white', 'shadow-lg', 'shadow-brand-600/30');
-                btn.classList.add('bg-brand-900', 'text-gray-300');
+                btn.classList.remove('bg-[#b8860b]', 'text-white', 'shadow-lg', 'shadow-[#b8860b]/30');
+                btn.classList.add('bg-[#17130a]', 'text-gray-300');
             });
 
-            event.target.classList.remove('bg-brand-900', 'text-gray-300');
-            event.target.classList.add('bg-brand-600', 'text-white', 'shadow-lg', 'shadow-brand-600/30');
+            event.target.classList.remove('bg-[#17130a]', 'text-gray-300');
+            event.target.classList.add('bg-[#b8860b]', 'text-white', 'shadow-lg', 'shadow-[#b8860b]/30');
 
             items.forEach(item => {
                 const itemCategory = item.getAttribute('data-category');
